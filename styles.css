@@ -1,0 +1,49 @@
+body {
+    background-color: lightgray;
+}
+
+th {
+    font-family: 'Ubuntu', light-300;
+}
+.chess-board {
+    border-spacing: 0;
+    border-collapse: collapse;
+    position: absolute;
+    top: 20%;
+    left: 35%;
+}
+.chess-board th {
+    padding: 0.5em;
+}
+.chess-board th + th {
+    border-bottom: 1px solid #000;
+}
+.chess-board th:first-child,
+.chess-board td:last-child {
+    border-right: 1px solid #000;
+}
+.chess-board tr:last-child td {
+    border-bottom: 1px solid;
+}
+.chess-board th:empty {
+    border: none;
+}
+.chess-board td {
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    font-size: 32px;
+    line-height: 0;
+}
+.chess-board .light {
+    background: #eee;
+}
+.chess-board .dark {
+    background: #aaa;
+}
+
+img{
+    width: 1em;
+    height: 1em;
+}
