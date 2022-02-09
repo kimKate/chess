@@ -8,6 +8,8 @@ function main() {
   generateVerticalNotation();
 
   setupCells();
+  setupPieces("white");
+  setupPieces("black");
 }
 
 function generateGorizontalNotation() {
@@ -110,5 +112,54 @@ function setupCells() {
     };
 
     cellElem.addEventListener("click", addSelectedClass);
+  }
+}
+
+function getPosition(annot) {
+  const l = ["a", "b", "c", "d", "e", "f", "g", "h"];
+  let i = l.indexOf(annot[0]) + 2;
+  let j = annot[1];
+
+  const postion = `body > table > tbody > tr:nth-child(${Number(j) + 1}) > td:nth-child(${i})`;
+
+  return postion;
+}
+
+function setupPieces(color) {
+  let annots;
+  const pieces = ["k", "q", "r", "b", "n", "p"];
+  const annotations = {
+    white: {
+      k: ["d1"],
+      q: ["e1"],
+      r: ["a1", "h1"],
+      b: ["c1", "f1"],
+      n: ["b1", "g1"],
+      p: ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2"],
+    },
+    black: {
+      k: ["e8"],
+      q: ["d8"],
+      r: ["a8", "h8"],
+      b: ["c8", "f8"],
+      n: ["b8", "g8"],
+      p: ["a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7"],
+    },
+  };
+
+  if (color == "white") {
+    annots = annotations.white;
+  } else {
+    annots = annotations.black;
+  }
+
+  for (piece of pieces) {
+    for (let annot of annots[piece]) {
+      const position = getPosition(annot);
+      const tdElem = document.querySelector(position);
+      const divElem = document.createElement("div");
+      divElem.className = `${color}-${piece}`;
+      tdElem.appendChild(divElem);
+    }
   }
 }
