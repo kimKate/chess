@@ -53,51 +53,51 @@ img{
 }
 
 
-.black-r {
+.black.r {
     background-image: url('../img/black-rock.png');
 }
 
-.black-n {
+.black.n {
     background-image: url('../img/black-knight.png');
 }
 
-.black-b {
+.black.b {
     background-image: url('../img/black-bishop.png');
 }
 
-.black-q {
+.black.q {
     background-image: url('../img/black-queen.png')
 }
 
-.black-k {
+.black.k {
     background-image: url('../img/black-king.png')
 }
 
-.black-p {
+.black.p {
     background-image: url('../img/black-pond.png')
 }
 
-.white-r {
+.white.r {
     background-image: url('../img/white-rock.png');
 }
 
-.white-n {
+.white.n {
     background-image: url('../img/white-knight.png');
 }
 
-.white-b {
+.white.b {
     background-image: url('../img/white-bishop.png');
 }
 
-.white-q {
+.white.q {
     background-image: url('../img/white-queen.png')
 }
 
-.white-k {
+.white.k {
     background-image: url('../img/white-king.png')
 }
 
-.white-p {
+.white.p {
     background-image: url('../img/white-pond.png')
 }
 
