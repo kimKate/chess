@@ -36,11 +36,10 @@ function generateVerticalNotation() {
       trElems[0].insertBefore(th, trElems[i].firstChild);
     } else {
       const th = document.createElement('th');
-      th.innerText = i;
+      th.innerText = -(i - 9);
       trElems[i].insertBefore(th, trElems[i].firstChild);
     }
   }
-
   return trElems;
 }
 
@@ -159,18 +158,12 @@ function setupPieces(color) {
       n: ['b8', 'g8'],
       p: ['a7', 'b7', 'c7', 'd7', 'e7', 'f7', 'g7', 'h7'],
     },
-  };
-  // const pieces = ['r'];
-  // const annotations = {
-  //   white: {
-  //     r: ['e4'],
-  //   },
-  // };
+  };;
 
   if (color == 'white') {
-    annots = annotations.white;
-  } else {
     annots = annotations.black;
+  } else {
+    annots = annotations.white;
   }
 
   for (piece of pieces) {
@@ -190,28 +183,28 @@ function generateCellsNotations() {
 
   for (let i = 0; i < cellElems.length; i++) {
     if (i <= 7) {
-      const id = `${letters[i]}1`;
+      const id = `${letters[i]}8`;
       cellElems[`${i}`].id = id;
     } else if (i <= 15) {
-      const id = `${letters[i - 8]}2`;
-      cellElems[`${i}`].id = id;
+      const id = `${letters[i - 8]}7`;
+      cellElems[`${i}`].id = id; 
     } else if (i <= 23) {
-      const id = `${letters[i - 16]}3`;
+      const id = `${letters[i - 16]}6`;
       cellElems[`${i}`].id = id;
     } else if (i <= 31) {
-      const id = `${letters[i - 24]}4`;
+      const id = `${letters[i - 24]}5`;
       cellElems[`${i}`].id = id;
     } else if (i <= 39) {
-      const id = `${letters[i - 32]}5`;
+      const id = `${letters[i - 32]}4`;
       cellElems[`${i}`].id = id;
     } else if (i <= 47) {
-      const id = `${letters[i - 40]}6`;
+      const id = `${letters[i - 40]}3`;
       cellElems[`${i}`].id = id;
     } else if (i <= 55) {
-      const id = `${letters[i - 48]}7`;
+      const id = `${letters[i - 48]}2`;
       cellElems[`${i}`].id = id;
     } else if (i <= 63) {
-      const id = `${letters[i - 56]}8`;
+      const id = `${letters[i - 56]}1`;
       cellElems[`${i}`].id = id;
     }
   }
