@@ -118,7 +118,6 @@ function setupCells() {
 
         //choose cell
         cellElem.classList.add('selected');
-        console.log(piece);
         cellElem.appendChild(piece);
         selectedCellElem = cellElem;
       }
@@ -192,35 +191,27 @@ function generateCellsNotations() {
   for (let i = 0; i < cellElems.length; i++) {
     if (i <= 7) {
       const id = `${letters[i]}1`;
-      console.log(id);
       cellElems[`${i}`].id = id;
     } else if (i <= 15) {
       const id = `${letters[i - 8]}2`;
-      console.log(id);
       cellElems[`${i}`].id = id;
     } else if (i <= 23) {
       const id = `${letters[i - 16]}3`;
-      console.log(id);
       cellElems[`${i}`].id = id;
     } else if (i <= 31) {
       const id = `${letters[i - 24]}4`;
-      console.log(id);
       cellElems[`${i}`].id = id;
     } else if (i <= 39) {
       const id = `${letters[i - 32]}5`;
-      console.log(id);
       cellElems[`${i}`].id = id;
     } else if (i <= 47) {
       const id = `${letters[i - 40]}6`;
-      console.log(id);
       cellElems[`${i}`].id = id;
     } else if (i <= 55) {
       const id = `${letters[i - 48]}7`;
-      console.log(id);
       cellElems[`${i}`].id = id;
     } else if (i <= 63) {
       const id = `${letters[i - 56]}8`;
-      console.log(id);
       cellElems[`${i}`].id = id;
     }
   }
