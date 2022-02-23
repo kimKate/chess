@@ -143,8 +143,8 @@ function setupPieces(color) {
   const pieces = ['k', 'q', 'r', 'b', 'n', 'p'];
   const annotations = {
     white: {
-      k: ['d1'],
-      q: ['e1'],
+      k: ['e1'],
+      q: ['d1'],
       r: ['a1', 'h1'],
       b: ['c1', 'f1'],
       n: ['b1', 'g1'],
