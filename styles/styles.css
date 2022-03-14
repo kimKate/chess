@@ -2,6 +2,10 @@ body {
     background-color: lightgray;
 }
 
+table {
+    background-color: aqua;
+}
+
 th {
     font-family: 'Ubuntu', light-300;
 }
