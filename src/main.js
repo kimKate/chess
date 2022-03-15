@@ -5,6 +5,9 @@ function main() {
   const boardElem = generateBoard();
 
   tableElem.appendChild(boardElem);
+  const body = document.querySelector('body')
+
+  body.appendChild(tableElem)
   generateVerticalNotation();
 
   generateCellsNotations();
@@ -215,37 +218,34 @@ function setupMoves() {
   let savedCellElem = null;
   let cellWithNewPiece = null
   let side = null
+  let n = 1
 
   for (const cellElem of cellElems) {
     const makeMove = () => {
 
-      //user did't choosen any cell yet 
       if (savedCellElem === null) {
         if (side === null) {
           side = 'white'
         }
 
-        //checking that user is clicking on piece on right side
         if (cellElem.children[0].classList.contains(side)) {
 
-          //delete the previous move cell
           if(cellWithNewPiece != null) {
             cellWithNewPiece.classList.remove('selected')
           }
 
-          //check does cell contains piece
           cellElem.classList.add('selected');
           savedCellElem = cellElem;
           if (side === 'white') {
             side = 'black'
           } else {
             side = 'white'
-          }        } else {
+          }        
+        } else {
           return;
         }
       } else if (savedCellElem === cellElem) {
 
-        //user choosed the same cell
         cellElem.classList.remove('selected');
         savedCellElem = null;
 
@@ -254,18 +254,40 @@ function setupMoves() {
         const savedPieceEl = savedCellElem.children[0];
         const pieceEl = cellElem.children[0]
         const newPieceEl = document.createElement('div');
+        const ulEl = document.querySelector('ul')
+
         newPieceEl.className = `piece ${pieceClassName}`;
 
-        //removing selected and pieces
+        if  (newPieceEl.className.includes('white')) {
+          const liEl = document.createElement('li')
+          liEl.className = 'move'
+
+          liEl.innerText = n + '. ' + pieceClassName.replace('white', '').toUpperCase() + cellElem.id
+          ulEl.appendChild(liEl)      
+          
+          n++
+        } else {
+          text = ulEl.lastChild.innerText
+          ulEl.lastChild.innerText = text + ' ' + pieceClassName.replace('black', '').toUpperCase() + cellElem.id
+        }
+
         if(cellElem.children[0] != undefined) {
           pieceEl.remove()
+
+          if(pieceEl.classList[2] == 'k') {
+            if(pieceEl.classList[1] == 'white') {
+              alert('Black won')
+            } else {
+              alert('White won')
+            }
+          }
         } 
         savedCellElem.classList.remove('selected');
         savedPieceEl.remove();
 
-        //adding piece
         cellElem.classList.add('selected');
         cellElem.appendChild(newPieceEl);
+
 
         cellWithNewPiece = cellElem
         savedCellElem = null;

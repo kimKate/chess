@@ -94,12 +94,10 @@ function setupOpenings() {
     for (const cellElem of cellElems) {
         const waitForOpening = () => {
             const current = getPiecesPostions()
-            console.log('log')
-            console.log(current, sicilian)
-            console.log('log')
 
             if (deepEqual(current, sicilian)) {
-                console.log('Sicilian')
+                const el = document.querySelector('.opening')
+                el.innerText = 'Opening: Sicilian'
             }
         }
 

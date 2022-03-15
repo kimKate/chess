@@ -1,15 +1,33 @@
-body {
+/* body {
     background-color: lightgray;
-}
+} */
 
-table {
-    background-color: aqua;
+body {
+    min-height: 100vh;
+    max-width: 400px;
+    margin: 0 auto;
 }
+/* table {
+    background-color: aqua;
+} */
 
 th {
-    font-family: 'Ubuntu', light-300;
+    font-family: 'Roboto', sans-serif
 }
 
+/* 
+.widget {
+    border-spacing: 0;
+    border-collapse: collapse;
+    position: absolute;
+    top: 20%;
+    right: 15%;
+} */
+
+table {
+    background-image: linear-gradient( var(--rotate) , #5ddcff, #3c67e3 43%, #4e00c2);
+    animation: spin 2.5s linear infinite;
+}
 .chess-board {
     border-spacing: 0;
     border-collapse: collapse;
@@ -36,8 +54,8 @@ th {
 
 .chess-board td {
     position: relative;
-    width: 1.5em;
-    height: 1.5em;
+    width: 2em;
+    height: 2em;
     text-align: center;
     font-size: 32px;
     line-height: 0;
@@ -51,9 +69,9 @@ th {
     background: #aaa;
 }
 
-img{
-    width: 1em;
-    height: 1em;
+img {
+    width: 1.5em;
+    height: 1.5em;
 }
 
 
@@ -108,10 +126,221 @@ img{
 .chess-board td > div {
     display: inline-block;
     background-size: cover;
-    width: 1em;
-    height: 1em;
+    width: 2em;
+    height: 2em;
 }
 
 .chess-board td.selected {
     background: rgb(208, 240, 192)
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 40px;
+    background-color: goldenrod;
+    }
+    
+.sidebar div {
+    padding: 8px;
+    font-size: 24px;
+    display: block;
+}
+    
+.body-text {
+    margin-right: 150px;
+    font-size: 18px;
+}
+
+input {
+    font-size: 15px;
+    margin-left: 15px;
+    width: 200px;
+    padding: 5px;
+    border: solid 1px#CCC;
+    outline: none;
+    border-radius: 7px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.05);
+    border-right-color: #EEE;
+    border-bottom-color: #EEE;
+    color: #006595;
+}
+
+li {
+    position: relative;
+    font-size: 20px;
+}
+
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+  }
+  
+  p {
+    font-family: 'Roboto', sans-serif;
+    font-size:20px
+  }
+
+  ul {
+    list-style-type: none;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 95px;
+    margin-right: -701px;
+    display: block;
+    padding: 0;
+    width: 150px;
+  }
+
+  li.move::before {  
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+  
+  li.move:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  li.move::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: rgb(208, 240, 192);
+    z-index: -1;
+    transition: transform .3s ease;
+  }
+
+.play {
+   background-color:rgb(208, 240, 192);
+}
+
+.play:hover,
+.play:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em ;
+  transform: translateY(-0.25em);
+}
+
+button   
+    :hover,
+    :focus { 
+      border-color: black;
+      color: black;
+    
+  }
+
+button {
+    list-style-type: none;
+    font-family: 'Roboto', sans-serif;
+    font-size:20px;
+    background: none;
+    border: 1px solid;    
+    font: inherit;
+    line-height: 1;
+    padding: 0.5em 1em;
+  }
+  
+.play:hover::before {
+    list-style-type: none;
+    font-family: 'Roboto', sans-serif;
+    font-size:20px;
+    background: none;
+    border: 1px solid;
+    font: inherit;
+    line-height: 1;
+    padding: 0.5em 1em;
+}
+
+#time_left_black {
+   border-top: 47px;
+}
+
+#time_left_white {
+    border-top: 47px;
+    padding-right: 10%;
+}
+
+.clock{
+    display: flex;
+    border: solid 1px;
+    margin-top: 31px;
+    padding-left: 10pxSicilian;
+    padding-right: 20px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400");
+
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: '<percentage>';
+  initial-value: 50%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: true;
+}
+
+:root {
+	--d: 2500ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c2: rgb(0, 0, 0);
+	--c1: rgb(184, 253, 150);
+}
+
+
+.box {
+    font-size: 3vw;
+    border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+    animation: borderRotate var(--d) linear infinite forwards;
+}
+
+
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+
+@keyframes borderRadial {
+	20% {
+		--gradX: 100%;
+		--gradY: 50%;
+	}
+	40% {
+		--gradX: 100%;
+		--gradY: 100%;
+	}
+	60% {
+		--gradX: 50%;
+		--gradY: 100%;
+	}
+	80% {
+		--gradX: 0%;
+		--gradY: 50%;
+	}
+	100% {
+		--gradX: 50%;
+		--gradY: 0%;
+	}
 }
